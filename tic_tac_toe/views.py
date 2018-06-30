@@ -8,7 +8,7 @@ from tic_tac_toe.utils import compute_move
 class PlayMove(APIView):
     def get(self, request):
         """
-        Return played move from 
+        Return played move from board 
         """
         board = request.query_params.get('board') or ''
         board = board.replace('+', ' ')

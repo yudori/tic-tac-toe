@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from tic_tac_toe.utils import board_is_valid
+from tic_tac_toe.utils import board_is_valid, is_correct_turn
 
 
 class BoardSerializer(serializers.Serializer):
@@ -10,6 +10,8 @@ class BoardSerializer(serializers.Serializer):
         """
         Check that the board is valid.
         """
-        if not board_is_valid:
+        if not board_is_valid(value):
             raise serializers.ValidationError("Invalid Board")
+        elif not is_correct_turn(value):
+            raise serializers.ValidationError("Oops, someone missed a turn")
         return value

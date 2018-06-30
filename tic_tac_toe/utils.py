@@ -17,6 +17,14 @@ def board_is_valid(board):
     return is_valid
 
 
+def is_correct_turn(board):
+    correct = False
+    diff = board.count(PLAYER_X) - board.count(PLAYER_O)
+    if diff == 0 or diff == 1:
+        return True
+    return correct
+
+
 def play(index, board):
     board_list = list(board)
     board_list[index] = PLAYER_O  # player is always 'o'
@@ -63,12 +71,11 @@ def compute_move(board):
     if not board_is_valid(board):
         raise BoardNotValidException()
     unplayed_indexes = get_unplayed_indexes(board)
-    if len(unplayed_indexes) > 0:
+
+    if game_won(PLAYER_X, board) or game_won(PLAYER_O, board) or len(unplayed_indexes) == 0:
+        new_board = board
+    else:
         # TODO: calculate optimal move, return best index
         index = random.choice(list(unplayed_indexes))
         new_board = play(index, board)
-    else:
-        # Its a tie
-        new_board = board
-    # check if win, draw or lose
     return new_board
