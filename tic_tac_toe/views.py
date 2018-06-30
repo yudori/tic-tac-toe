@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.http import HttpResponse
 
 from tic_tac_toe.serializers import BoardSerializer
-from tic_tac_toe.utils import compute_move
+from tic_tac_toe.utils import compute_move, BoardNotValidException
 
 
 class PlayMove(APIView):
@@ -11,8 +11,7 @@ class PlayMove(APIView):
         Return played move from board 
         """
         board = request.query_params.get('board') or ''
-        board = board.replace('+', ' ')
-        serializer = BoardSerializer(data={ 'board': board })
+        serializer = BoardSerializer(data={ 'board': '[{}]'.format(board) })
         serializer.is_valid(raise_exception=True)
         new_board = compute_move(board)
-        return Response({ 'board': new_board })
+        return HttpResponse(new_board)
