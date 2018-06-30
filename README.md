@@ -1,4 +1,10 @@
-# TIC-TAC-TOE Game
+# tic-tac-toe Game
+
+
+## Running Remotely
+
+* `$ curl https://yudori-tic-tac-toe.herokuapp.com?board=+++++++x+`
+
 
 
 ## Running Locally
@@ -20,11 +26,6 @@
 
 * `$ curl http://127.0.0.1:8000?board=+++++++x+`
 
-
-
-## Running Remotely
-
-* `$ curl http://yudori_tic-tac-toe.herokuapp.com?board=+++++++x+`
 
 
 [Pipenv]: https://docs.pipenv.org/
