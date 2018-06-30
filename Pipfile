@@ -4,6 +4,8 @@ url = "https://pypi.org/simple"
 name = "pypi"
 
 [packages]
+django = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

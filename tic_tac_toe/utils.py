@@ -19,7 +19,7 @@ def board_is_valid(board):
 
 def play(index, board):
     board_list = list(board)
-    board_list.insert(index, PLAYER_O)  # player is always 'o'
+    board_list[index] = PLAYER_O  # player is always 'o'
     return ''.join(board_list)
 
 
