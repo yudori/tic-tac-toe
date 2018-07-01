@@ -11,7 +11,7 @@
 
 ### Retrieve code
 
-* `$ git clone https://richardoyudo@gitlab.int.seedstars.com/invoizpaid/dashboard.git`
+* `$ git clone https://github.com/yudori/tic-tac-toe.git`
 
 
 ### Installation
